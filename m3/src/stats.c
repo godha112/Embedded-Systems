@@ -47,11 +47,11 @@ void main() {
 
 void print_statistics(unsigned char test[], unsigned int len){
 
-    printf("the input array - \n\n");
+    PRINTF("the input array - \n\n");
     print_array(test, len);
 
     sort_array(test, len);
-    printf("the sorted array - \n\n");
+    PRINTF("the sorted array - \n\n");
     print_array(test, len);
 
     unsigned char mean = find_mean(test, len);
@@ -59,22 +59,25 @@ void print_statistics(unsigned char test[], unsigned int len){
     unsigned char maximum = find_maximum(test, len);
     unsigned char minimum = find_minimum(test, len);
 
-    printf("the mean of the given array = %d\n\n", mean);
-    printf("the median of the given array = %d\n\n", median);
-    printf("the maximum element of the given array = %d\n\n", maximum);
-    printf("the minimum element of the given array = %d\n\n", minimum);
+    PRINTF("the mean of the given array = %d\n\n", mean);
+    PRINTF("the median of the given array = %d\n\n", median);
+    PRINTF("the maximum element of the given array = %d\n\n", maximum);
+    PRINTF("the minimum element of the given array = %d\n\n", minimum);
 
 }
 
 void print_array(unsigned char test[], unsigned int len){
+    #ifdef VERBOSE
     int i = 0, j = 0;
     for(i = 0; i<len/8; i++){
         for(j = 0; j<len/5; j++){
-            printf("%3d ", test[(8*i)+j]);
+            PRINTF("%3d ", test[(8*i)+j]);
         }
-        printf("\n");
+        PRINTF("\n");
     }
-    printf("\n");
+    PRINTF("\n");
+
+    #endif
 }
 
 unsigned char find_mean(unsigned char test[], unsigned int len){

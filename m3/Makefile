@@ -35,6 +35,8 @@ include sources.mk
 
 # Platform Overrides
 PLATFORM = HOST
+VERBOSE = DISABLE
+COURSE = COURSE1
 
 # general flags for both platforms
 GEN_FLAGS =  \
@@ -46,6 +48,14 @@ GEN_FLAGS =  \
 
 
 TARGET = c1m2
+
+ifeq($(VERBOSE), ENABLE)
+	CPPFLAGS += -DVERBOSE
+endif
+
+ifeq($(COURSE), COURSE1)
+	CPPFLAGS += -DCOURSE1
+endif
 			
 # conditional check for switching between the platforms
 ifeq ($(PLATFORM), MSP432)
