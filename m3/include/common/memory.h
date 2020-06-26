@@ -90,4 +90,114 @@ void set_all(char * ptr, char value, unsigned int size);
  */
 void clear_all(char * ptr, unsigned int size);
 
+/**
+ * @brief This function moves data from source to destination
+ * 
+ * This function takes two byte pointers (one source and one 
+ * destination)  and a length of bytes to move from the source
+ * location to the destination.It is capable pf handling overlap 
+ * of source and destination, by copying with no data corruption.
+ * All operations are performed using pointer arithmetic, not
+ * array indexing
+ * 
+ * @param src pointer to the source
+ * @param dst pointer to the destination
+ * @param length length of tje bytes to be moved
+ * 
+ * @return pointer to the destination(dst)
+ */
+
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief This function copies data from source to destination
+ * 
+ * This function takes two byte pointers (one source and one 
+ * destination) and a length of bytes to copy from the source 
+ * location to the destination. The behavior is undefined if 
+ * there is overlap of source and destination. Copy should still 
+ * occur, but will likely corrupt your data. All operations need
+ *  to be performed using pointer arithmetic, not array indexing.
+ * 
+ * @param src pointer to the source
+ * @param dst pointer to the destination
+ * @param length length of bytes to be copied
+ * 
+ * @return pointer to the destination(dst).
+ */
+
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
+
+/** 
+ * @brief This function set a length of memory to a particular value
+ *
+ * This function takes a pointer to a source memory location, a length
+ * in bytes and set all locations of that memory to a given value. All
+ * operations are performed using pointer arithmetic, not array indexing.
+ * 
+ * @param src pointer to the source
+ * @param length length of bytes to be replaced by a value
+ * @param value the value to be set
+ */
+
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
+
+/**
+ * @brief This function sets a length od bytes in source data to zero.
+ * 
+ * This function takes a pointer to a memory location, a length in bytes
+ * and zero out all of the memory. All the operations are perfprmed using 
+ * pointer arithmetic, not array indexing.
+ * 
+ * @param src pointer to the source
+ * @param length length of the memory segment
+ * 
+ * @return pointer to the source(src);
+ */
+
+uint8_t * my_memzero(uint8_t * src, size_t length);
+
+/**
+ * @brief This function reverse the order of all bytes of particular length
+ *  
+ * This function takes a pointer to a memory location and a length in bytes
+ * and reverse the order of all of the bytes. All operations are performed in 
+ * pointer arithmetic, not array indexing.
+ * 
+ * @param src pointer to the source
+ * @param length length of the memory segment
+ * 
+ * @return pointer to the source(src)
+ */
+
+uint8_t * my_reverse(uint8_t * src, size_t length);
+
+/**
+ * @brief This function allocates certain number of words in dynamic memory
+ * 
+ * This function takes a number of words to be allocated in dynamic memory. 
+ * All operations are performed in pointer artithmetic and not array indexing.
+ * 
+ * @param length length of the memory to be allocated in dynamic memory
+ * 
+ * @return pointer to the memory if successful, or a Null pointer if not successful
+ */
+
+int32_t * reserve_words(size_t length);
+
+/**
+ * @brief this function free a dynamic memory allocation
+ * 
+ * When given the pointer to the source of a dynamic memory
+ * allocation this function frees the dynamically allocated memory. All operations
+ * are performed in pointer arithmetic not array indexing.
+ * 
+ * @param src pointer to the dynamically allocated memory
+ * 
+ * @return NULL
+ * 
+ */
+
+void free_words(int32_t * src);
+
 #endif /* __MEMORY_H__ */
