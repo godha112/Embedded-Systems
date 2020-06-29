@@ -47,7 +47,7 @@ GEN_FLAGS =  \
 	    -std=c99
 
 
-TARGET = c1m2
+TARGET = Course1
 
 ifeq($(VERBOSE), ENABLE)
 	CPPFLAGS += -DVERBOSE
