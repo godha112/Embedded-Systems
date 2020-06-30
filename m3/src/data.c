@@ -7,6 +7,8 @@
  * 
  */
 
+#include "data.h"
+#include "memory.h"
 
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
     int negative = -1;
@@ -35,7 +37,7 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
         length++;
     }
 
-    *(ptr + length) = "\0";
+    *(ptr + length) = 00;
 
     if(negative){
         my_memmove(ptr, ptr+1, length);
@@ -56,20 +58,18 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
             negative = 1;
         }
         if(*(ptr + i)>9){
-            temp = int(*(ptr + i)) - 55;
+            temp = *(ptr + i) - 55;
             num += power * temp;
         }
         else{
-            temp = int(*(ptr+i)) - 48;
+            temp = *(ptr+i) - 48;
             num += power * temp;
         }
         power = power*base;
         if(negative){
             num = num * -1;
         }
-        return num;
+       
     }
-
-
-
+     return num;
 }

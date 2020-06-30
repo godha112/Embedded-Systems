@@ -6,9 +6,16 @@
  * @date June 28 2020
  * 
  */
+ 
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 #ifndef __DATA_H__
 #define __DATA_H__
+
+
+
 
 /**
  * @brief convert data from a standard integer type to an ASCII string'

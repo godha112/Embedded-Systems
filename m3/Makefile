@@ -49,11 +49,11 @@ GEN_FLAGS =  \
 
 TARGET = Course1
 
-ifeq($(VERBOSE), ENABLE)
+ifeq ($(VERBOSE), ENABLE)
 	CPPFLAGS += -DVERBOSE
 endif
 
-ifeq($(COURSE), COURSE1)
+ifeq ($(COURSE), COURSE1)
 	CPPFLAGS += -DCOURSE1
 endif
 			
